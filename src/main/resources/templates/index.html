@@ -11,24 +11,31 @@
     <tr>
         <td><b>Name:</b></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
-        <td th:text="${resume.name}"></td>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.name}"></td>
     </tr>
 </table>
 <table>
     <tr>
         <td><b>Email:</b></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
-        <td th:text="${resume.email}"></td>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.email}"></td>
     </tr>
 </table>
 <table>
     <tr>
        <td><b>Education:</b></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
-        <td th:text="${resume.education}"></td>
+    <tr th:each="education : ${educations}">
+        <td th:text="${education.major}"></td>
+    </tr>
+
+    <tr th:each="education : ${educations}">
+        <td th:text="${education.school}"></td>
+    </tr>
+    <tr th:each="education : ${educations}">
+        <td th:text="${educations.gYear}"></td>
     </tr>
 
 </table>
@@ -36,16 +43,29 @@
     <tr>
         <td><b>Experience:</b></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
-        <td th:text="${resume.experience}"></td>
+    <tr th:each="experience : ${experiences}">
+        <td th:text="${experience.jobPosition}"></td>
+    </tr>
+    <tr th:each="experience : ${experiences}">
+        <td th:text="${experience.company}"></td>
+    </tr>
+    <tr th:each="experience : ${experiences}">
+        <td th:text="${experience.company}"></td>
+    </tr>
+    <tr th:each="experience : ${experiences}">
+        <td th:text="${experience.duration}"></td>
+    </tr>
+    <tr th:each="experience : ${experiences}">
+        <td th:text="${experience.duties}"></td>
     </tr>
 </table>
 <table>
     <tr>
         <td><b>Skills:</b></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
-        <td th:text="${resume.skill}"></td>
+    <tr th:each="skill : ${skills}">
+        <td th:text="${skill.type}"></td>
+        <td th:text="${skill.level}"></td>
     </tr>
 </table>
 

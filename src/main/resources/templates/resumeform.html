@@ -7,29 +7,33 @@
 <body>
 <form action="#"
       th:action="@{/process}"
-      th:object="${resume}"
-      method="post" >
+      th:object="${user}"
+      method="post">
     <input type="hidden" th:field="*{id}" />
-   <!-- <label for="name">First name:</label>-->
    Name       :<input type="text" th:field="*{name}" />
                <span th:if="${#fields.hasErrors('name')}"
                th:errors="*{name}"></span><br /><br />
    Email      :<input type="text" th:field="*{email}" />
                <span th:if="${#fields.hasErrors('email')}"
                th:errors="*{email}"></span><br /><br />
-    <!--Education :<a href="/education">Add educational achievements</a><br />-->
+<!--
    Education  :<textarea rows="3" th:field="*{education}" />
                <span th:if="${#fields.hasErrors('education')}"
                th:errors="*{education}"></span><br /><br />
 
+    <a href="/education">Add more educational achievements</a><br /><br />
+
    Experience :<textarea rows="3" th:field="*{experience}" />
                <span th:if="${#fields.hasErrors('experience')}"
                th:errors="*{experience}"></span><br /><br />
-   Skills    :<input type="text" th:field="*{skill}" />
-              <span th:if="${#fields.hasErrors('skill')}"
-              th:errors="*{skill}"></span><br /><br /><br />
-
-    <input type="submit" value="Submit" />
+   Skills    <textarea rows="3" th:field="*{skill}" />
+             <span th:if="${#fields.hasErrors('skill')}"
+             th:errors="*{skill}"></span><br /><br />
+-->
+    <input type="submit" value="Submit" /><br />
 </form>
+<a href="/education">Add educational achievements</a><br /><br />
+<a href="/experience">Add work experience</a><br /><br />
+<a href="/skills">Add skills</a><br /><br />
 </body>
 </html>

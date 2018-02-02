@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Education</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/skills}"
+      th:object="${skill}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <table>
+
+        <tr>
+            <td>Skill Type :<input type="text" th:field="*{type}" />
+                <span th:if="${#fields.hasErrors('type')}"
+                      th:errors="*{type}"></span></td>
+            <td>Skill Level : <select th:field="*{skill_level}">
+                <option value="Skilled">Skilled</option>
+                <option value="proficient">proficient</option>
+                <option value="familiar">familiar</option>
+            </select></td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Add" />
+</form>
+</body>
+</html>

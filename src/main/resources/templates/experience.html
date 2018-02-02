@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Education</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/experience}"
+      th:object="${experience}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+<table>
+    <tr>
+        Job     :<input type="text" th:field="*{jobPosition}" />
+        <span th:if="${#fields.hasErrors('jobPosition')}"
+              th:errors="*{jobPosition}"></span><br /><br />
+    </tr>
+<tr>
+    Company :<input type="text" th:field="*{company}" />
+    <span th:if="${#fields.hasErrors('company')}"
+          th:errors="*{company}"></span><br /><br />
+</tr>
+    <tr>
+        Duties :<textarea rows="3" th:field="*{duties}" />
+        <span th:if="${#fields.hasErrors('duties')}"
+              th:errors="*{duties}"></span><br /><br />
+    </tr>
+</table>
+
+
+    <input type="submit" value="Add" />
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Education</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/education}"
+      th:object="${education}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    Major :<input type="text" th:field="*{major}" />
+            <span th:if="${#fields.hasErrors('major')}"
+          th:errors="*{major}"></span><br /><br />
+    School :<input type="text" th:field="*{school}" />
+    <span th:if="${#fields.hasErrors('school')}"
+          th:errors="*{school}"></span><br /><br />
+    Year :<input type="number" th:field="*{gYear}" />
+    <span th:if="${#fields.hasErrors('gYear')}"
+          th:errors="*{gYear}"></span><br /><br />
+
+    <input type="submit" value="Add" />
+</form>
+</body>
+</html>
