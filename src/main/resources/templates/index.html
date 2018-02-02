@@ -8,29 +8,46 @@
 <h3>Resume</h3>
 
 <table>
-
-    <tr th:each="resume : ${resumes}">
+    <tr>
         <td><b>Name:</b></td>
+    </tr>
+    <tr th:each="resume : ${resumes}">
         <td th:text="${resume.name}"></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
+</table>
+<table>
+    <tr>
         <td><b>Email:</b></td>
+    </tr>
+    <tr th:each="resume : ${resumes}">
         <td th:text="${resume.email}"></td>
     </tr>
+</table>
+<table>
+    <tr>
+       <td><b>Education:</b></td>
+    </tr>
     <tr th:each="resume : ${resumes}">
-        <td><b>Education:</b></td>
         <td th:text="${resume.education}"></td>
     </tr>
-    <tr th:each="resume : ${resumes}">
-        <td><b>Experience:</b></td>
-        <td th:text="${resume.experience}"></td>
-    </tr>
-    <tr th:each="resume : ${resumes}">
-        <td><b>Skills:</b></td>
-        <td th:text="${resume.skill}"></td>
-    </tr>
-
 
 </table>
+<table>
+    <tr>
+        <td><b>Experience:</b></td>
+    </tr>
+    <tr th:each="resume : ${resumes}">
+        <td th:text="${resume.experience}"></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><b>Skills:</b></td>
+    </tr>
+    <tr th:each="resume : ${resumes}">
+        <td th:text="${resume.skill}"></td>
+    </tr>
+</table>
+
 </body>
 </html>

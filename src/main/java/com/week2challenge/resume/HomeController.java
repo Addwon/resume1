@@ -23,7 +23,7 @@ public class HomeController {
     }
 
     @GetMapping("/add")
-    public String courseForm(Model model){
+    public String resumeForm(Model model){
         model.addAttribute("resume",new Resume());
         return "resumeform";
     }
@@ -33,6 +33,7 @@ public class HomeController {
         if(result.hasErrors()){
             return "resumeform";
         }
+
         resumeRepository.save(resume);
         return "redirect:/";
     }

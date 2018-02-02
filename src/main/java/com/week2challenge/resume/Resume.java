@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Resume {
@@ -23,6 +24,7 @@ public class Resume {
     @NotNull
     @Size(min=10)
     private String education;
+    //private List<String> education;
 
     @NotNull
     @Size(min=10)
@@ -31,6 +33,7 @@ public class Resume {
     @NotNull
     @Size(min=5)
     private String skill;
+
 
     public long getId() {
         return id;
@@ -79,4 +82,5 @@ public class Resume {
     public void setSkill(String skill) {
         this.skill = skill;
     }
+
 }
