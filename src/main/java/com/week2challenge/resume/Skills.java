@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 public class Skills {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     @NotNull
     @Size(min=2)
     String type;
@@ -32,5 +33,13 @@ public class Skills {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

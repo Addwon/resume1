@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Education</title>
+    <title>Skills</title>
 </head>
 <body>
 <form action="#"
       th:action="@{/skills}"
-      th:object="${skill}"
+      th:object="${skills}"
       method="post">
     <input type="hidden" th:field="*{id}" />
 
@@ -17,7 +17,7 @@
             <td>Skill Type :<input type="text" th:field="*{type}" />
                 <span th:if="${#fields.hasErrors('type')}"
                       th:errors="*{type}"></span></td>
-            <td>Skill Level : <select th:field="*{skill_level}">
+            <td>Skill Level : <select th:field="*{level}">
                 <option value="Skilled">Skilled</option>
                 <option value="proficient">proficient</option>
                 <option value="familiar">familiar</option>

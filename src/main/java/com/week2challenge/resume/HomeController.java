@@ -21,46 +21,45 @@ public class HomeController {
     SkillsRepository skillsRepository;
 
     @RequestMapping("/")
-    public String listUsers(Model model){
-        model.addAttribute("users",userRepository.findAll());
+    public String generateResume(Model model){
+        model.addAttribute("usr",userRepository.findAll());
         return "index";
+    }
+    @RequestMapping("/add")
+    public String collectRecords(Model model){
+        model.addAttribute("edu",educationRepository.findAll());
+        model.addAttribute("exp",experienceRepository.findAll());
+        model.addAttribute("skl",skillsRepository.findAll());
+        return "add";
     }
 
     @GetMapping("/add")
-    public String resumeForm(Model model){
+    public String userForm(Model model){
         model.addAttribute("user",new User());
         return "resumeform";
     }
 
-    @PostMapping("/process")
+    @PostMapping("/process1")
     public String processForm(@Valid @ModelAttribute("user") User user, BindingResult result){
         if(result.hasErrors()){
             return "resumeform";
         }
         userRepository.save(user);
-        //System.out.println(resume.getMoreEducation1());
         return "redirect:/";
     }
-    /*
-    @RequestMapping("/")
-    public String listEducation(Model model){
-        model.addAttribute("educations",educationRepository.findAll());
-        return "index";
-    }
-    */
     @GetMapping("/education")
     public String educationForm(Model model){
         model.addAttribute("education",new Education());
         return "education";
     }
-    @PostMapping("/education")
+    @PostMapping("/process2")
     public String processeduForm(@Valid @ModelAttribute("education") Education education, BindingResult result){
         if(result.hasErrors()){
             return "education";
         }
 
         educationRepository.save(education);
-        return "redirect:/";
+        return "redirect:/add";
     }
 
     @GetMapping("/experience")
@@ -75,14 +74,9 @@ public class HomeController {
         }
 
         experienceRepository.save(experience);
-        return "redirect:/";
+        return "redirect:/add";
     }
-    /*
-    @RequestMapping("/")
-    public String listSkills(Model model){
-        model.addAttribute("skills",skillsRepository.findAll());
-        return "index";
-    }*/
+
     @GetMapping("/skills")
     public String skillsForm(Model model){
         model.addAttribute("skills",new Skills());
@@ -98,13 +92,5 @@ public class HomeController {
         return "redirect:/";
     }
 
-
-
-/*
-@RequestMapping("/education/{id}")
-public String eduform(@PathVariable("id") long id, Model model){
-    model.addAttribute("resume", resumeRepository.findOne(id));
-    return "education";
-}*/
 
 }
